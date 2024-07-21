@@ -1,12 +1,22 @@
-- 👋 Hi, I’m @Pierre430game
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+#include <iostream>
+#include <unistd.h>
+using namespace std;
 
-<!---
-Pierre430game/Pierre430game is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+int main(){
+sleep(1);
+cout << "GO !\n";
+sleep(1);
+cout << "GO !\n";
+
+char o;
+do{
+cin >> o;
+cout << o << endl;
+if(o != "ZEPILLE"){
+cout << "noo :(\ntry again!";
+};
+}
+while(o != "ZEPILLE");
+
+
+}
