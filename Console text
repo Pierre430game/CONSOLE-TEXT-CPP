@@ -1,0 +1,148 @@
+#include<iostream>
+#include<string>
+#include <fstream>
+#include<vector>
+#include<cstdio>
+#include<stdlib.h>
+using namespace std;
+vector<string>DocNames;
+int QntDoc = DocNames.size();
+int seed = 0;
+void NewTxt(string nome){
+ofstream arqv;
+string aq;
+arqv.open(nome);
+cout << "texto(escreva close depois enter para parar):\n";
+    while(getline(cin,aq)){
+    if (aq == "close") {
+    cout << "\nfechado\n";
+            break;
+        };
+    arqv << aq  << endl;
+    };
+arqv.close();
+QntDoc++;
+DocNames.push_back(nome);
+};
+
+void ReadTxt(string nome){
+ifstream arqv;
+string linha;
+arqv.open(nome);
+if(arqv.is_open()){
+cout << "aberto com sucesso:";
+while(getline(arqv,linha)){
+cout << linha << endl;
+};
+}else{
+cerr << "\n não foi possivel abrir o documento\n";
+cerr<< "o documento talvez nao tenha cido criado corretamente\n";
+cerr << "tente novamente e verifique se foi colocado o nome do arquivo CORRETAMENTE\n\n";
+};
+arqv.close();
+};
+
+void SubscribeTxt(string nome){
+ofstream arqv;
+string aq;
+arqv.open(nome);
+cout << "\nSubscrever(escreva close e depois enter para parar):\n";
+while(getline(cin,aq)){
+if(aq == "close"){
+cout << "fechado\n";
+break;
+}
+arqv << aq << endl;
+}
+arqv.close();
+};
+string res;
+
+int main(int c,char** v){
+cout << "Insira Help para mostrar as funções disponíveis\n";
+do{
+    cin >> res;
+    if(res == "help" || res == "Help"){
+    cout << "\nlfunções de arquivo:\nNewTxt\nReadTxt\nSubscribeTxt\nTxtNames\nDeleteTxt\nASTxt\n";
+    cout << "funções do console:\nSay\nStop\nTranslateToMorseCode";
+    cout << "\n\nfunções de matemática:\nRandom\n";
+    }else if(res == "newTxt" || res == "NewTxt" || res == "newtxt"){
+    string nome;
+    cout << "\nnome do documento:";
+    cin >> nome;
+    NewTxt(nome);
+    }else if(res == "readTxt" || res == "ReadTxt" || res == "readtxt"){
+    string nome1;
+    cout << "\nNome do arquivo:";
+    cin >> nome1;
+    cout << "\n";
+    ReadTxt(nome1);
+    }else if (res == "say" || res == "Say") {
+            string nah;
+            getline(cin,nah);
+            cout << "-->" << nah << endl;
+        }else if(res == "stop" || res == "Stop"){
+    break;
+    }else if(res == "clear" || res == "Clear"){
+    system("clear");
+    cout << "Insira Help para mostrar as funções disponíveis\n";
+    }else if(res == "SubscribeTxt" || res == "subscribeTxt" || res == "subscribetxt"){
+    string nah;
+      cout << "Nome do documento txt:";
+    cin >> nah;
+    SubscribeTxt(nah);
+    }else if(res == "txtNames" || res == "TxtNames" || res == "txtnames"){
+   cout << "\nQuantidade de documentos txt criados:" << QntDoc << endl;
+   cout << "Nomes dos documentos txt criados:";
+   for (int i = 0; i < DocNames.size(); i++) {
+        cout << "," << DocNames[i];
+    };
+    cout << "\n";
+    }else if(res == "DeleteTxt" || res == "deleteTxt" || res == "deletetxt"){
+    string nome;
+    cout << "\nNome do documento txt:";
+    cin >> nome;
+    if(remove(nome.c_str()) != 0){
+    cerr << "\nErro ao deletar o documento\n";
+    }else{
+    cout << "\nDeletado com sucesso\n";
+    };}else if(res=="random" || res=="Random"){
+    int max;cin >> max;
+    srand(seed);
+    seed++;
+    cout << rand() % max << "\n";
+    }else if(res=="ASTxt" || res=="astxt"){
+    string nome;
+    string aq;
+    ofstream arqv;
+    cout << "nome do documento:";cin>>nome;
+    arqv.open(nome,ios::app);
+    if(arqv.is_open()){
+    cout << "adicionar(escreva close depois enter para parar):\n";
+    while(getline(cin,aq)){
+    if (aq == "close") {
+    cout << "\nfechado\n";
+            break;
+        };
+    arqv << aq  << endl;
+    };}else{
+    cerr << "\n não foi possivel abrir o documento\n";
+cerr<< "o documento talvez nao tenha cido criado corretamente\n";
+cerr << "tente novamente e verifique se foi colocado o nome do arquivo CORRETAMENTE\n\n";
+    };
+    arqv.close();
+    };/*else if(res=="TranslateToMorseCode"){
+    string aq;
+cout << "traduzir(escreva close depois enter para parar):\n";
+    while(getline(cin,aq)){
+    if (aq == "close") {
+    cout << "\nfechado\n";
+            break;};
+     arqv << aq  << endl;};
+     for(int i=0;i<aq.length();i++){
+      //if(){}
+     }
+    };*/
+    }while(true);
+    return 0;
+    }
