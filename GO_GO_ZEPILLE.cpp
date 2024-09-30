@@ -8,7 +8,7 @@ cout << "GO !\n";
 sleep(1);
 cout << "GO !\n";
 
-char o;
+string o;
 do{
 cin >> o;
 cout << o << endl;
