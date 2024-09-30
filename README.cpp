@@ -1,1 +1,1 @@
-
+por que isso existe?
