@@ -4,6 +4,7 @@
 #include<vector>
 #include<cstdio>
 #include<stdlib.h>
+#include<math.h>
 using namespace std;
 vector<string>DocNames;
 int QntDoc = DocNames.size();
@@ -65,7 +66,7 @@ do{
     if(res == "help" || res == "Help"){
     cout << "\nlfunções de arquivo:\nNewTxt\nReadTxt\nSubscribeTxt\nTxtNames\nDeleteTxt\nASTxt\n";
     cout << "funções do console:\nSay\nStop\nTranslateToMorseCode";
-    cout << "\n\nfunções de matemática:\nRandom\n";
+    cout << "\n\nfunções de matemática:\nRandom\nGame\n";
     }else if(res == "newTxt" || res == "NewTxt" || res == "newtxt"){
     string nome;
     cout << "\nnome do documento:";
@@ -109,8 +110,9 @@ do{
     };}else if(res=="random" || res=="Random"){
     int max;cin >> max;
     srand(seed);
+    int random_number = rand() % max;
     seed++;
-    cout << rand() % max << "\n";
+    cout << random_number << "\n";
     }else if(res=="ASTxt" || res=="astxt"){
     string nome;
     string aq;
@@ -131,18 +133,31 @@ cerr<< "o documento talvez nao tenha cido criado corretamente\n";
 cerr << "tente novamente e verifique se foi colocado o nome do arquivo CORRETAMENTE\n\n";
     };
     arqv.close();
-    };/*else if(res=="TranslateToMorseCode"){
+    }else if(res=="TranslateToMorseCode"){
     string aq;
 cout << "traduzir(escreva close depois enter para parar):\n";
     while(getline(cin,aq)){
     if (aq == "close") {
     cout << "\nfechado\n";
-            break;};
-     arqv << aq  << endl;};
-     for(int i=0;i<aq.length();i++){
-      //if(){}
-     }
-    };*/
-    }while(true);
-    return 0;
+    break;
     }
+     };for(int i=0;i<aq.length();i++){
+     if(aq[i]=='a' || aq[i] == 'A'){cout << " ._ ";};if(aq[i]=='b' || aq[i] == 'B') {cout << " _... ";};if(aq[i]=='c' || aq[i] == 'C') {cout << " _._. ";};if(aq[i]=='d' || aq[i] == 'D'){cout << " _.. ";};if(aq[i]=='e' || aq[i] == 'E'){ cout << " . ";};
+     if(aq[i]=='f' || aq[i] == 'F'){cout << " .._. ";}if(aq[i]=='g' || aq[i] == 'G'){ cout << " __. ";}if(aq[i]=='h' || aq[i] == 'H'){cout << " .... ";};
+     if(aq[i]=='i' || aq[i] == 'I'){ cout << " .. ";}if(aq[i]=='j' || aq[i] == 'J'){ cout << " .___ ";}if(aq[i]=='k' || aq[i] == 'K'){cout << " _._ ";};if(aq[i]=='l' || aq[i] == 'L'){ cout << " ._.. ";};
+     if(aq[i]=='m' || aq[i] == 'M'){ cout << " __ ";}if(aq[i]=='n' || aq[i] == 'N'){cout << " _. ";}if(aq[i]=='o' || aq[i] == 'O') {cout << " ___ ";};if(aq[i]=='p' || aq[i] == 'P'){cout << " .__. ";};
+     if(aq[i]=='q' || aq[i] == 'Q'){cout << " __._ ";}if(aq[i]=='r' || aq[i] == 'R'){cout << " _._ ";}if(aq[i]=='s' || aq[i] == 'S'){cout << " ... ";};if(aq[i]=='t' || aq[i] == 'T'){ cout << "  _  ";};if(aq[i]=='u' || aq[i] == 'U'){ cout << " .._ ";};
+     if(aq[i]=='v' || aq[i] == 'V'){ cout << " ..._ ";}if(aq[i]=='w' || aq[i] == 'W'){cout << " .__ ";}if(aq[i]=='x' || aq[i] == 'X'){cout << " _.._ ";};if(aq[i]=='y' || aq[i] == 'Y'){ cout << " _.__ ";}
+     if(aq[i]=='z' || aq[i] == 'Z'){ cout << "  __..  ";};if(aq[i]==' '){cout << '|';};
+    }}else if(res=="Game" || res=="game"){
+    seed++;int max,nah;
+    cout << "insira um numero:";cin>>max;
+    int random=rand()%max;
+   if(max<=0){ cout<<"error!\n";}else{for(int i=1;i<=3;i++){
+   cout<<"chute "<<i<<':';cin>>nah;
+    if(nah==random){cout << "😀👍\n";break;}else{cout << "não\n";};
+    };
+    double numero = 1/max;
+    cout << "numero:"<<random<<endl<<"probabilidade de acerto:" << numero << endl;
+   }; }}while(true);
+    return 0;}
