@@ -1,1 +1,0 @@
-por que isso existe?
