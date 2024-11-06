@@ -1,10 +1,11 @@
 #include<iostream>
 #include<string>
-#include <fstream>
+#include<fstream>
 #include<vector>
 #include<cstdio>
 #include<stdlib.h>
 #include<math.h>
+#include<exception>
 using namespace std;
 vector<string>DocNames;
 int QntDoc = DocNames.size();
@@ -59,14 +60,14 @@ arqv.close();
 };
 string res;
 
-int main(int c,char** v){
-cout << "Insira Help para mostrar as funções disponíveis\n";
+int main(){
+cout << "Insira Help para mostrar as funcoes disponiveis\n";
 do{
     cin >> res;
     if(res == "help" || res == "Help"){
-    cout << "\nlfunções de arquivo:\nNewTxt\nReadTxt\nSubscribeTxt\nTxtNames\nDeleteTxt\nASTxt\n";
-    cout << "funções do console:\nSay\nStop\nTranslateToMorseCode";
-    cout << "\n\nfunções de matemática:\nRandom\nGame\n";
+    cout << "\nfuncoes de arquivo:\nNewTxt\nReadTxt\nSubscribeTxt\nTxtNames\nDeleteTxt\nASTxt\n";
+    cout << "funcoes do console:\nSay\nStop\nTranslateToMorseCode";
+    cout << "\n\nfuncoes de matematica:\nRandom\nGame\n";
     }else if(res == "newTxt" || res == "NewTxt" || res == "newtxt"){
     string nome;
     cout << "\nnome do documento:";
@@ -74,7 +75,7 @@ do{
     NewTxt(nome);
     }else if(res == "readTxt" || res == "ReadTxt" || res == "readtxt"){
     string nome1;
-    cout << "\nNome do arquivo:";
+    cout << "Nome do arquivo:";
     cin >> nome1;
     cout << "\n";
     ReadTxt(nome1);
@@ -86,7 +87,7 @@ do{
     break;
     }else if(res == "clear" || res == "Clear"){
     system("clear");
-    cout << "Insira Help para mostrar as funções disponíveis\n";
+    cout << "Insira Help para mostrar as funçoes disponiveis\n";
     }else if(res == "SubscribeTxt" || res == "subscribeTxt" || res == "subscribetxt"){
     string nah;
       cout << "Nome do documento txt:";
@@ -101,7 +102,7 @@ do{
     cout << "\n";
     }else if(res == "DeleteTxt" || res == "deleteTxt" || res == "deletetxt"){
     string nome;
-    cout << "\nNome do documento txt:";
+    cout << "Nome do documento txt:";
     cin >> nome;
     if(remove(nome.c_str()) != 0){
     cerr << "\nErro ao deletar o documento\n";
@@ -128,7 +129,7 @@ do{
         };
     arqv << aq  << endl;
     };}else{
-    cerr << "\n não foi possivel abrir o documento\n";
+    cerr << "\n na o foi possivel abrir o documento\n";
 cerr<< "o documento talvez nao tenha cido criado corretamente\n";
 cerr << "tente novamente e verifique se foi colocado o nome do arquivo CORRETAMENTE\n\n";
     };
@@ -138,26 +139,28 @@ cerr << "tente novamente e verifique se foi colocado o nome do arquivo CORRETAME
 cout << "traduzir(escreva close depois enter para parar):\n";
     while(getline(cin,aq)){
     if (aq == "close") {
-    cout << "\nfechado\n";
+    cout << "fechado\n";
     break;
     }
-     };for(int i=0;i<aq.length();i++){
-     if(aq[i]=='a' || aq[i] == 'A'){cout << " ._ ";};if(aq[i]=='b' || aq[i] == 'B') {cout << " _... ";};if(aq[i]=='c' || aq[i] == 'C') {cout << " _._. ";};if(aq[i]=='d' || aq[i] == 'D'){cout << " _.. ";};if(aq[i]=='e' || aq[i] == 'E'){ cout << " . ";};
-     if(aq[i]=='f' || aq[i] == 'F'){cout << " .._. ";}if(aq[i]=='g' || aq[i] == 'G'){ cout << " __. ";}if(aq[i]=='h' || aq[i] == 'H'){cout << " .... ";};
-     if(aq[i]=='i' || aq[i] == 'I'){ cout << " .. ";}if(aq[i]=='j' || aq[i] == 'J'){ cout << " .___ ";}if(aq[i]=='k' || aq[i] == 'K'){cout << " _._ ";};if(aq[i]=='l' || aq[i] == 'L'){ cout << " ._.. ";};
-     if(aq[i]=='m' || aq[i] == 'M'){ cout << " __ ";}if(aq[i]=='n' || aq[i] == 'N'){cout << " _. ";}if(aq[i]=='o' || aq[i] == 'O') {cout << " ___ ";};if(aq[i]=='p' || aq[i] == 'P'){cout << " .__. ";};
-     if(aq[i]=='q' || aq[i] == 'Q'){cout << " __._ ";}if(aq[i]=='r' || aq[i] == 'R'){cout << " _._ ";}if(aq[i]=='s' || aq[i] == 'S'){cout << " ... ";};if(aq[i]=='t' || aq[i] == 'T'){ cout << "  _  ";};if(aq[i]=='u' || aq[i] == 'U'){ cout << " .._ ";};
-     if(aq[i]=='v' || aq[i] == 'V'){ cout << " ..._ ";}if(aq[i]=='w' || aq[i] == 'W'){cout << " .__ ";}if(aq[i]=='x' || aq[i] == 'X'){cout << " _.._ ";};if(aq[i]=='y' || aq[i] == 'Y'){ cout << " _.__ ";}
-     if(aq[i]=='z' || aq[i] == 'Z'){ cout << "  __..  ";};if(aq[i]==' '){cout << '|';};
-    }}else if(res=="Game" || res=="game"){
+     for(int i=0;i<=aq.length()+1;i++){
+     if(aq[i]=='a' || aq[i] == 'A'){cout << " .- ";};if(aq[i]=='b' || aq[i] == 'B') {cout << " -... ";};if(aq[i]=='c' || aq[i] == 'C') {cout << " -.-. ";};if(aq[i]=='d' || aq[i] == 'D'){cout << " -.. ";};if(aq[i]=='e' || aq[i] == 'E'){ cout << " . ";};
+     if(aq[i]=='f' || aq[i] == 'F'){cout << " ..-. ";}if(aq[i]=='g' || aq[i] == 'G'){ cout << " --. ";}if(aq[i]=='h' || aq[i] == 'H'){cout << " .... ";};
+     if(aq[i]=='i' || aq[i] == 'I'){ cout << " .. ";}if(aq[i]=='j' || aq[i] == 'J'){ cout << " .--- ";}if(aq[i]=='k' || aq[i] == 'K'){cout << " -.- ";};if(aq[i]=='l' || aq[i] == 'L'){ cout << " .-.. ";};
+     if(aq[i]=='m' || aq[i] == 'M'){ cout << " -- ";}if(aq[i]=='n' || aq[i] == 'N'){cout << " -. ";}if(aq[i]=='o' || aq[i] == 'O') {cout << " --- ";};if(aq[i]=='p' || aq[i] == 'P'){cout << " .--. ";};
+     if(aq[i]=='q' || aq[i] == 'Q'){cout << " --.- ";}if(aq[i]=='r' || aq[i] == 'R'){cout << " .-. ";}if(aq[i]=='s' || aq[i] == 'S'){cout << " ... ";};if(aq[i]=='t' || aq[i] == 'T'){ cout << "  -  ";};if(aq[i]=='u' || aq[i] == 'U'){ cout << " ..- ";};
+     if(aq[i]=='v' || aq[i] == 'V'){ cout << " ...- ";}if(aq[i]=='w' || aq[i] == 'W'){cout << " .-- ";}if(aq[i]=='x' || aq[i] == 'X'){cout << " -..- ";};if(aq[i]=='y' || aq[i] == 'Y'){ cout << " -.-- ";}
+     if(aq[i]=='z' || aq[i] == 'Z'){ cout << "  --..  ";};if(aq[i]==' '){cout << '|';};if(aq[i]==aq.length()+1){cout << '\n';};
+    };};cout << "\n";}else if(res=="Game" || res=="game"){
+        try{
     seed++;int max,nah;
     cout << "insira um numero:";cin>>max;
     int random=rand()%max;
    if(max<=0){ cout<<"error!\n";}else{for(int i=1;i<=3;i++){
    cout<<"chute "<<i<<':';cin>>nah;
-    if(nah==random){cout << "😀👍\n";break;}else{cout << "não\n";};
+    if(nah==random){cout << "acertou!\n";break;}else{cout << "nao\n";};
     };
-    double numero = 1/max;
-    cout << "numero:"<<random<<endl<<"probabilidade de acerto:" << numero << endl;
-   }; }}while(true);
+    cout << "numero:"<<random<<endl<<"probabilidade de acerto:" << 1.0000/max << endl;
+   }; }catch(exception e){
+    cout << "Error\n";
+   }}}while(true);
     return 0;}
