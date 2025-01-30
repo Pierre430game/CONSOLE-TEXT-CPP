@@ -76,6 +76,7 @@ int main()
     cout << "Insira Help para mostrar as funcoes disponiveis\n";
     do
     {
+        cout << "$ ";
         cin >> res;
         if (res == "help" || res == "Help")
         {
