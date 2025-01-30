@@ -80,7 +80,7 @@ int main()
         cin >> res;
         if (res == "help" || res == "Help")
         {
-            cout << "\nlfuncoes de arquivo:\nNewTxt\nReadTxt\nSubscribeTxt\nTxtNames\nDeleteTxt\nASTxt\n";
+            cout << "\nfuncoes de arquivo:\nNewTxt\nReadTxt\nSubscribeTxt\nTxtNames\nDeleteTxt\nASTxt\n";
             cout << "funcoes do console:\nSay\nStop\nTranslateToMorseCode";
             cout << "\n\nfuncoes de matematica:\nRandom\nGame\n";
         }
