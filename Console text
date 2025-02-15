@@ -10,73 +10,16 @@ using namespace std;
 vector<string> DocNames;
 int QntDoc = DocNames.size();
 int seed = 0;
-void NewTxt(string nome)
-{
-    ofstream arqv;
-    string aq;
-    arqv.open(nome);
-    cout << "texto(escreva close depois enter para parar):\n";
-    while (getline(cin, aq))
-    {
-        if (aq == "close")
-        {
-            cout << "\nfechado\n";
-            break;
-        };
-        arqv << aq << endl;
-    };
-    arqv.close();
-    QntDoc++;
-    DocNames.push_back(nome);
-};
-
-void ReadTxt(string nome)
-{
-    ifstream arqv;
-    string linha;
-    arqv.open(nome);
-    if (arqv.is_open())
-    {
-        cout << "aberto com sucesso:";
-        while (getline(arqv, linha))
-        {
-            cout << linha << endl;
-        };
-    }
-    else
-    {
-        cerr << "\n não foi possivel abrir o documento\n";
-        cerr << "o documento talvez nao tenha cido criado corretamente\n";
-        cerr << "tente novamente e verifique se foi colocado o nome do arquivo CORRETAMENTE\n\n";
-    };
-    arqv.close();
-};
-
-void SubscribeTxt(string nome)
-{
-    ofstream arqv;
-    string aq;
-    arqv.open(nome);
-    cout << "\nSubscrever(escreva close e depois enter para parar):\n";
-    while (getline(cin, aq))
-    {
-        if (aq == "close")
-        {
-            cout << "fechado\n";
-            break;
-        }
-        arqv << aq << endl;
-    }
-    arqv.close();
-};
+void NewTxt(string nome);
+void ReadTxt(string nome);
+void SubscribeTxt(string nome);
 string res;
 
 int main()
 {
     cout << "Insira Help para mostrar as funcoes disponiveis\n";
-    do
+    while(true)
     {
-        cout << "$ ";
         cin >> res;
         if (res == "help" || res == "Help")
         {
@@ -346,11 +289,70 @@ int main()
                     {
                         cout << "nao\n";
                     };
-                };
+                }
                 cout << "numero:" << random << endl
                      << "probabilidade de acerto:" << 1.0000 / max << endl;
-            };
+            }
         }
-    } while (true);
+    }
     return 0;
+}
+void NewTxt(string nome)
+{
+    ofstream arqv;
+    string aq;
+    arqv.open(nome);
+    cout << "texto(escreva close depois enter para parar):\n";
+    while (getline(cin, aq))
+    {
+        if (aq == "close")
+        {
+            cout << "\nfechado\n";
+            break;
+        };
+        arqv << aq << endl;
+    };
+    arqv.close();
+    QntDoc++;
+    DocNames.push_back(nome);
+};
+
+void ReadTxt(string nome)
+{
+    ifstream arqv;
+    string linha;
+    arqv.open(nome);
+    if (arqv.is_open())
+    {
+        cout << "aberto com sucesso:";
+        while (getline(arqv, linha))
+        {
+            cout << linha << endl;
+        };
+    }
+    else
+    {
+        cerr << "\n não foi possivel abrir o documento\n";
+        cerr << "o documento talvez nao tenha cido criado corretamente\n";
+        cerr << "tente novamente e verifique se foi colocado o nome do arquivo CORRETAMENTE\n\n";
+    };
+    arqv.close();
+}
+
+void SubscribeTxt(string nome)
+{
+    ofstream arqv;
+    string aq;
+    arqv.open(nome);
+    cout << "\nSubscrever(escreva close e depois enter para parar):\n";
+    while (getline(cin, aq))
+    {
+        if (aq == "close")
+        {
+            cout << "fechado\n";
+            break;
+        }
+        arqv << aq << endl;
+    }
+    arqv.close();
 }
